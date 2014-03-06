@@ -15,6 +15,7 @@ setup(name='python-primogen',
       maintainer='Pedro Salgado',
       maintainer_email='steenzout@ymail.com',
       url='https://github.com/steenzout/python-primogen',
+      namespace_packages=('company',),
       packages=find_packages(exclude=('*.tests', '*.tests.*', 'tests.*', 'tests')),
       install_requires=[str(pkg.req) for pkg in parse_requirements('requirements.txt')],
       tests_requires=[str(pkg.req) for pkg in parse_requirements('test-requirements.txt')],)
