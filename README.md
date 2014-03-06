@@ -56,6 +56,9 @@ README.md
 
 This file.
 
+Check "[here](http://daringfireball.net/projects/markdown/syntax)" for help
+with [Markdown](http://daringfireball.net/projects/markdown/) syntax.
+
 
 requirements.txt
 ----------------
