@@ -114,5 +114,4 @@ $ tox
 
 # generate the documentation
 $ tox -e docs
-
 ```
