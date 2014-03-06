@@ -53,6 +53,16 @@ The Apache 2 license.
 Feel free to replace for another license that will be more suitable to the purpose of your project.
 
 
+pytest.ini
+----------
+
+The [pytest](https://pytest.org/latest/index.html) configuration file.
+
+You can read
+"[pytest : Changing standard (Python) test discovery](https://pytest.org/latest/example/pythoncollection.html)"
+for more information on how to use this file to customize [pytest](https://pytest.org/latest/index.html)'s behavior.
+
+
 README.md
 ---------
 
