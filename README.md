@@ -72,7 +72,7 @@ setup.py
 The setup script whre you'll describe the project / product, authors, maintainers and
 information on how to distribute it.
 
-Read [Python : 2. Writing the Setup Script](http://docs.python.org/2/distutils/setupscript.html),
+Read "[Python : 2. Writing the Setup Script](http://docs.python.org/2/distutils/setupscript.html)",
 for more information.
 
 
