@@ -42,6 +42,8 @@ A generic file has been provided.
 You can use [gitignore.io](http://www.gitignore.io) to
 produce other files that will better suit your development environment.
 
+For more information, you can check "[git-scm.com : gitignore](http://git-scm.com/docs/gitignore)".
+
 
 LICENSE
 -------
