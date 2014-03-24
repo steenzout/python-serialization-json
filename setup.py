@@ -6,9 +6,9 @@ from pip.req import parse_requirements
 
 from setuptools import find_packages, setup
 
-
+exec(open('company/version.py').read())
 setup(name='python-primogen',
-      version=version.__version__,
+      version=__version__,
       description='Python basic package.',
       author='Pedro Salgado',
       author_email='steenzout@ymail.com',
