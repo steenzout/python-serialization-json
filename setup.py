@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-from company.package import version
-
 from pip.req import parse_requirements
 
 from setuptools import find_packages, setup
