@@ -16,7 +16,6 @@ class ConfigTestCase(unittest.TestCase):
     def setUp(self):
         # mock of logging.RootLogger
         self.patch_get_logger = mock.patch('company.package.config.logging.getLogger')
-
         self.mock_get_logger = self.patch_get_logger.start()
 
         self.instance = self.mock_get_logger.return_value
@@ -25,9 +24,6 @@ class ConfigTestCase(unittest.TestCase):
         self.instance.info.return_value = None
 
         self.addCleanup(self.patch_get_logger.stop)
-
-#    def tearDown(self):
-#        mock.patch.stopall()
 
     @mock.patch('company.package.config.os.path')
     @mock.patch('company.package.config.ConfigParser.read')
