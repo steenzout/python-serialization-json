@@ -29,10 +29,12 @@ def load_configuration(config_file=DEFAULT_CONFIG_FILE):
     """
     if not os.path.exists(config_file) or not os.path.isfile(config_file):
         msg = '%s configuration file does not exist!' % config_file
-        logging.getLogger().error(msg)
+        logging.getLogger(__name__).error(msg)
         raise ValueError(msg)
 
     try:
         logging.config.fileConfig(config_file, disable_existing_loggers=False)
     except ConfigParser.NoSectionError as e:
-        logging.getLogger().error('Fail: %s\n' % e, exc_info=True)
+        msg = 'Failed to load configuration from %s!' % config_file
+        logging.getLogger(__name__).error(msg)
+        logging.getLogger(__name__).debug(str(e), exc_info=True)
