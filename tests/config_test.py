@@ -11,7 +11,10 @@ import unittest
 from company.package.config import DEFAULT_CONFIG_FILE
 
 
-class ConfigTestCase(unittest.TestCase):
+class LoadTestCase(unittest.TestCase):
+    """
+    Tests for the company.package.config.load_configuration() function.
+    """
 
     def setUp(self):
         # mock of logging.RootLogger
@@ -29,7 +32,7 @@ class ConfigTestCase(unittest.TestCase):
     @mock.patch('company.package.config.ConfigParser.read')
     def test_load_configuration(self, mock_read, mock_path):
         """
-        Test company.package.config.load_configuration().
+        Test company.package.config.load_configuration() when configuration file exists.
         """
         mock_path.exists.return_value = True
         mock_path.isfile.return_value = True
@@ -89,3 +92,9 @@ class ConfigTestCase(unittest.TestCase):
             'Failed to load configuration from %s!' % DEFAULT_CONFIG_FILE)
         self.mock_root_logger.debug.assert_called_once_with(
             str(ConfigParser.NoSectionError("No section: 'formatters'")), exc_info=True)
+
+
+class GetTestCase(unittest.TestCase):
+    """
+    Tests for the company.package.config.get() function.
+    """
