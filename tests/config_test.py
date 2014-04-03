@@ -29,7 +29,7 @@ class ConfigTestCase(unittest.TestCase):
     @mock.patch('company.package.config.ConfigParser.read')
     def test_load_configuration(self, mock_read, mock_path):
         """
-        Test company.config.load_configuration().
+        Test company.package.config.load_configuration().
         """
         mock_path.exists.return_value = True
         mock_path.isfile.return_value = True
@@ -48,7 +48,7 @@ class ConfigTestCase(unittest.TestCase):
     @mock.patch('company.package.config.ConfigParser.read')
     def test_load_configuration_nofile(self, mock_read, mock_path):
         """
-        Test company.logging.load() when the configuration file doesn't exist.
+        Test company.package.config.load_configuration() when the configuration file doesn't exist.
         """
         mock_path.exists.return_value = True
         mock_path.isfile.return_value = False
@@ -69,7 +69,7 @@ class ConfigTestCase(unittest.TestCase):
     @mock.patch('company.package.config.ConfigParser.read')
     def test_load_configuration_errors(self, mock_read, mock_path):
         """
-        Test company.logging.load() when NoSectionErrors are raised.
+        Test company.package.config.load_configuration() when NoSectionErrors are raised.
         """
         mock_path.exists.return_value = True
         mock_path.isfile.return_value = True
