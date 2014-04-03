@@ -24,7 +24,7 @@ def load_configuration(config_file=DEFAULT_LOGGING_CONFIG_FILE):
     """
     Loads logging configuration from the given configuration file.
 
-    :param config_file: the configuration file (default=/etc/noesis/logging.conf)
+    :param config_file: the configuration file (default=/etc/package/logging.conf)
     :type config_file: str
     """
     if os.path.exists(config_file):
