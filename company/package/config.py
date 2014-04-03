@@ -40,7 +40,7 @@ def load_configuration(config_file=DEFAULT_CONFIG_FILE):
     settings = ConfigParser()
     try:
         settings.read(config_file)
-        logging.getLogger().info('%s configuration file was loaded.' % config_file)
+        logging.getLogger(__name__).info('%s configuration file was loaded.' % config_file)
     except NoSectionError as e:
         msg = 'Failed to load configuration from %s!' % config_file
         logging.getLogger(__name__).error(msg)
