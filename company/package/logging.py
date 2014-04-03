@@ -17,20 +17,22 @@ import ConfigParser
 import logging.config
 
 
-DEFAULT_LOGGING_CONFIG_FILE = '/etc/package/logging.conf'
+DEFAULT_CONFIG_FILE = '/etc/package/logging.conf'
 
 
-def load_configuration(config_file=DEFAULT_LOGGING_CONFIG_FILE):
+def load_configuration(config_file=DEFAULT_CONFIG_FILE):
     """
     Loads logging configuration from the given configuration file.
 
     :param config_file: the configuration file (default=/etc/package/logging.conf)
     :type config_file: str
     """
-    if os.path.exists(config_file):
-        try:
-            logging.config.fileConfig(config_file, disable_existing_loggers=False)
-        except ConfigParser.NoSectionError as e:
-            sys.stderr.write('Fail: %s\n' % e)
-    else:
-        sys.stderr.write('Logging configuration file %s doesn\'t exist!\n' % config_file)
+    if not os.path.exists(config_file) or not os.path.isfile(config_file):
+        msg = '%s configuration file does not exist!' % config_file
+        logging.getLogger().error(msg)
+        raise ValueError(msg)
+
+    try:
+        logging.config.fileConfig(config_file, disable_existing_loggers=False)
+    except ConfigParser.NoSectionError as e:
+        logging.getLogger().error('Fail: %s\n' % e, exc_info=True)
