@@ -29,7 +29,7 @@ class ConfigTestCase(unittest.TestCase):
     @mock.patch('company.package.config.ConfigParser.read')
     def test_load_configuration(self, mock_read, mock_path):
         """
-        Test company.logging.load().
+        Test company.config.load_configuration().
         """
         mock_path.exists.return_value = True
         mock_path.isfile.return_value = True
