@@ -64,7 +64,8 @@ class ConfigTestCase(unittest.TestCase):
         self.assertFalse(mock_fileConfig.fileConfig.called)
 
         self.assertTrue(self.mock_get_logger.called)
-        self.mock_root_logger.error.assert_called_once_with('%s configuration file does not exist!' % DEFAULT_CONFIG_FILE)
+        self.mock_root_logger.error.assert_called_once_with(
+            '%s configuration file does not exist!' % DEFAULT_CONFIG_FILE)
 
     @mock.patch('company.package.logging.os.path')
     @mock.patch('company.package.logging.logging.config.fileConfig')
@@ -84,6 +85,7 @@ class ConfigTestCase(unittest.TestCase):
         self.assertFalse(mock_fileConfig.fileConfig.called)
 
         self.assertTrue(self.mock_get_logger.called)
-        self.mock_root_logger.error.assert_called_once_with('Failed to load configuration from %s!' % DEFAULT_CONFIG_FILE)
+        self.mock_root_logger.error.assert_called_once_with(
+            'Failed to load configuration from %s!' % DEFAULT_CONFIG_FILE)
         self.mock_root_logger.debug.assert_called_once_with(
             str(ConfigParser.NoSectionError("No section: 'formatters'")), exc_info=True)
