@@ -19,7 +19,7 @@ class Basic(object):
     Basic functionality to enhance test cases.
     """
 
-    __slots__ = ('config', 'logger')
+    __slots__ = ('configuration', 'logger')
 
     configuration_loaded = False
     logging_loaded = False
