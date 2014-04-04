@@ -11,9 +11,9 @@ from __future__ import absolute_import
 import os.path
 
 try:
-    from ConfigParser import SafeConfigParser as ConfigParser, NoSectionError
+    from ConfigParser import SafeConfigParser as ConfigParser
 except ImportError:
-    from configparser import ConfigParser, NoSectionError
+    from configparser import ConfigParser
 
 import logging
 
