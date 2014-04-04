@@ -8,12 +8,11 @@ install:
 - pip install -r requirements.txt --use-mirrors
 - pip install -r test-requirements.txt --use-mirrors
 before_script:
-- sudo mkdir -p /var/log/company
-- sudo chown $USER:$USER /var/log/company
+- mkdir -p log
 script:
 - tox
 after_script:
-- sudo rm -rf /var/log/company
+- rm -rf log
 branches:
   only:
     - master
