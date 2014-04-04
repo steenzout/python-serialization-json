@@ -129,8 +129,7 @@ class ResetTestCase(unittest.TestCase):
     Tests for the company.package.config.reset() function.
     """
 
-    @mock.patch('company.package.config.load_configuration', autospec=True)
-    def test(self, mock_load):
+    def test(self):
         """
         Tests company.package.config.reset().
         """
