@@ -3,10 +3,6 @@ import tests
 
 class ATestCase(tests.BaseTestCase):
 
-    def setUp(self):
-        self.setup_configuration()
-        self.setup_logger()
-
     def test(self):
         self.assertTrue(self.logging_loaded)
         self.assertTrue(self.logging_loaded)
