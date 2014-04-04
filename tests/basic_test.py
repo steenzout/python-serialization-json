@@ -6,10 +6,13 @@ class ATestCase(unittest.TestCase, tests.Basic):
 
     def setUp(self):
         self.setup_configuration()
-        self.setup_logger('%s.%s' % (__name__, ATestCase.__name__))
+        self.setup_logger()
 
     def test(self):
         self.assertTrue(self.logging_loaded)
         self.assertTrue(self.logging_loaded)
 
-        self.logger.debug('test()')
+        self.assertFalse(self.logger is not None)
+
+        self.assertFalse(self.configuration is not None)
+        self.assertEquals(self.configuration['key'], 'value')
