@@ -69,10 +69,9 @@ class BaseTestCase(unittest.TestCase, Basic):
         1. load logging configuration
         2. load package configuration
         """
-        self.logger.info('setUp()')
-
         # 1
         self.setup_logger()
+        self.logger.info('setUp()')
 
         # 2
         self.setup_configuration()
