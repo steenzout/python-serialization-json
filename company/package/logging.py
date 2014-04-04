@@ -9,12 +9,10 @@
 from __future__ import absolute_import
 
 
-import sys
+import logging
+import logging.config as config
+
 import os
-
-import ConfigParser
-
-import logging.config
 
 
 DEFAULT_CONFIG_FILE = '/etc/package/logging.conf'
@@ -33,9 +31,10 @@ def load_configuration(config_file=DEFAULT_CONFIG_FILE):
         raise ValueError(msg)
 
     try:
-        logging.config.fileConfig(config_file, disable_existing_loggers=False)
+        config.fileConfig(config_file, disable_existing_loggers=False)
         logging.getLogger(__name__).info('%s configuration file was loaded.' % config_file)
     except StandardError as e:
         msg = 'Failed to load configuration from %s!' % config_file
         logging.getLogger(__name__).error(msg)
         logging.getLogger(__name__).debug(str(e), exc_info=True)
+        raise e
