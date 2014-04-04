@@ -19,10 +19,10 @@ class LoadConfigurationTestCase(unittest.TestCase):
 
     def setUp(self):
         # mock of logging.RootLogger
-        self.patch_get_logger = mock.patch('company.package.config.logging.getLogger', autospec=True)
+        self.patch_get_logger = mock.patch('company.package.logging.logging.getLogger', autospec=True)
         self.mock_get_logger = self.patch_get_logger.start()
 
-        self.patch_root_logger = mock.patch('company.package.config.logging.RootLogger', autospec=True)
+        self.patch_root_logger = mock.patch('company.package.logging.logging.RootLogger', autospec=True)
         self.mock_root_logger = self.patch_root_logger.start()
         self.mock_get_logger.return_value = self.mock_root_logger
 
