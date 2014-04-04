@@ -1,5 +1,4 @@
 import company.package.config
-import ConfigParser
 
 import mock
 
