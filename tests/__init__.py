@@ -25,12 +25,6 @@ class Basic(object):
     Basic functionality to enhance test cases.
     """
 
-    __slots__ = ('configuration', 'logger')
-
-    def __init__(self):
-        self.setup_logger()
-        self.setup_configuration()
-
     def setup_configuration(self):
         """
         Setup test configuration.
@@ -60,6 +54,8 @@ class BaseTestCase(unittest.TestCase, Basic):
     Base test case.
     """
 
+    __slots__ = ('configuration', 'logger')
+
     def __init__(self, methodName):
         """
         Initializes a BaseTestCase instance.
@@ -70,24 +66,17 @@ class BaseTestCase(unittest.TestCase, Basic):
         super(BaseTestCase, self).__init__(methodName)
         super(Basic, self).__init__()
 
+        self.setup_logger()
+        self.setup_configuration()
+
     def setUp(self):
         """
-        Setup test resources:
-        1. load logging configuration
-        2. load package configuration
+        Setup test resources.
         """
-        # 1
-        if self.logger is None:
-            self.setup_logger()
         self.logger.info('setUp()')
-
-        # 2
-        if self.configuration is None:
-            self.setup_configuration()
 
     def tearDown(self):
         """
-        Tears down test resources:
-        1. remove temporary test database
+        Tear down test resources.
         """
         self.logger.info('tearDown()')
