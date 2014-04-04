@@ -139,5 +139,5 @@ class ResetTestCase(unittest.TestCase):
         company.package.config.SETTINGS = default
 
         self.assertEquals(default, company.package.config.get())
-        self.assertIsNone(company.package.config.reset())
-        self.assertIsNone(company.package.config.SETTINGS)
+        self.assertTrue(company.package.config.reset() is None)
+        self.assertTrue(company.package.config.SETTINGS is None)
