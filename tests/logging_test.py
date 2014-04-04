@@ -1,7 +1,5 @@
 import company.package.logging
 
-import ConfigParser
-
 import mock
 
 import pytest
