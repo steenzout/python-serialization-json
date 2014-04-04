@@ -1,5 +1,5 @@
 """
-.. module:: package.config
+.. module:: company.package.config
     :platform: Unix
     :synopsis: Configuration utilities.
 
