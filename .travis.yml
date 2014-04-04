@@ -3,10 +3,11 @@ python:
 - TOXENV=py26
 - TOXENV=py27
 install:
+- pip install tox
 - pip install -r requirements.txt --use-mirrors
 - pip install -r test-requirements.txt --use-mirrors
 script:
-- tox
+- tox -e $TOXENV
 branches:
   only:
     - master
