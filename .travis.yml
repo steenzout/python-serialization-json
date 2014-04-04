@@ -7,6 +7,9 @@ install:
 - pip install tox --use-mirrors
 - pip install -r requirements.txt --use-mirrors
 - pip install -r test-requirements.txt --use-mirrors
+before_script:
+- sudo mkdir -p /var/log/company
+- sudo chown $USER:$USER /var/log/company
 script:
 - tox
 after_script:
