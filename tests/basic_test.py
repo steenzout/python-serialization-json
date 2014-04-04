@@ -3,11 +3,11 @@ import tests
 
 class ATestCase(tests.BaseTestCase):
 
-    def test(self):
-        self.assertTrue(self.logging_loaded)
-        self.assertTrue(self.configuration_loaded)
+    def test_logging_configuration_loaded(self):
+        self.assertTrue(self.logger is not None)
 
-        self.assertFalse(self.logger is not None)
+    def test_configuration_loaded(self):
+        self.assertTrue(self.configuration is not None)
 
-        self.assertFalse(self.configuration is not None)
+    def test_configuration_contents(self):
         self.assertEquals(self.configuration['company.package']['key'], 'value')
