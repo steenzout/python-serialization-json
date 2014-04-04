@@ -27,9 +27,6 @@ class Basic(object):
 
     __slots__ = ('configuration', 'logger')
 
-    configuration_loaded = False
-    logging_loaded = False
-
     def setup_configuration(self):
         """
         Setup test configuration.
@@ -37,10 +34,8 @@ class Basic(object):
         """
         logging.getLogger('%s.%s' % (__name__, 'Basic')).info('setup_configuration()')
 
-        if not Basic.configuration_loaded:
-            company.package.config.reset()
-            company.package.config.load_configuration(PACKAGE_CONFIG_FILE)
-            Basic.configuration_loaded = True
+        company.package.config.reset()
+        company.package.config.load_configuration(PACKAGE_CONFIG_FILE)
 
         self.configuration = company.package.config.get()
 
@@ -51,9 +46,7 @@ class Basic(object):
         """
         logging.getLogger('%s.%s' % (__name__, 'Basic')).info('setup_logger()')
 
-        if not Basic.logging_loaded:
-            company.package.logging.load_configuration(LOGGING_CONFIG_FILE)
-            Basic.logging_loaded = True
+        company.package.logging.load_configuration(LOGGING_CONFIG_FILE)
 
         self.logger = logging.getLogger('%s.%s' % (__name__, self.__class__.__name__))
 
@@ -70,11 +63,13 @@ class BaseTestCase(unittest.TestCase, Basic):
         2. load package configuration
         """
         # 1
-        self.setup_logger()
+        if self.logger is None:
+            self.setup_logger()
         self.logger.info('setUp()')
 
         # 2
-        self.setup_configuration()
+        if self.configuration is None:
+            self.setup_configuration()
 
     def tearDown(self):
         """
