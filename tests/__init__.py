@@ -27,6 +27,10 @@ class Basic(object):
 
     __slots__ = ('configuration', 'logger')
 
+    def __init__(self):
+        self.setup_logger()
+        self.setup_configuration()
+
     def setup_configuration(self):
         """
         Setup test configuration.
@@ -55,6 +59,16 @@ class BaseTestCase(unittest.TestCase, Basic):
     """
     Base test case.
     """
+
+    def __init__(self, methodName):
+        """
+        Initializes a BaseTestCase instance.
+
+        :param methodName: the test method to be executed.
+        :type methodName: str
+        """
+        super(BaseTestCase, self).__init__(methodName)
+        super(Basic, self).__init__()
 
     def setUp(self):
         """
