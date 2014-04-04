@@ -1,7 +1,9 @@
 python-primogen
 ===============
 
-[![Code Climate](https://codeclimate.com/github/steenzout/python-primogen.png)](https://codeclimate.com/github/steenzout/python-primogen.png) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/steenzout/python-primogen.png/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/steenzout/python-primogen.png/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 
 This repository's goal is to be a starting point for Python projects.
 
