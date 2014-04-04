@@ -21,20 +21,22 @@ class LoadConfigurationTestCase(unittest.TestCase):
         # mock of logging.RootLogger
         self.patch_get_logger = mock.patch('company.package.config.logging.getLogger', autospec=True)
         self.mock_get_logger = self.patch_get_logger.start()
-        self.addCleanup(self.patch_get_logger.stop)
 
         self.patch_root_logger = mock.patch('company.package.config.logging.RootLogger', autospec=True)
         self.mock_root_logger = self.patch_root_logger.start()
-        self.addCleanup(self.patch_root_logger.stop)
         self.mock_get_logger.return_value = self.mock_root_logger
 
         self.patch_path_exists = mock.patch('os.path', autospec=True)
         self.mock_path = self.patch_path_exists.start()
-        self.addCleanup(self.patch_path_exists.stop)
 
         self.patch_fileConfig = mock.patch('company.package.logging.config.fileConfig', autospec=True)
         self.mock_fileConfig = self.patch_fileConfig.start()
-        self.addCleanup(self.patch_fileConfig.stop)
+
+    def tearDown(self):
+        self.patch_get_logger.stop()
+        self.patch_root_logger.stop()
+        self.patch_path_exists.stop()
+        self.patch_fileConfig.stop()
 
     def test(self):
         """
