@@ -1,9 +1,7 @@
 python-primogen
 ===============
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/steenzout/python-primogen.png/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+[![Build Status](https://travis-ci.org/steenzout/python-primogen.svg?branch=master)](https://travis-ci.org/steenzout/python-primogen)
 
 This repository's goal is to be a starting point for Python projects.
 
