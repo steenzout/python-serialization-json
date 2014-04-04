@@ -45,13 +45,10 @@ class Basic(object):
 
         self.configuration = company.package.config.get()
 
-    def setup_logger(self, name):
+    def setup_logger(self):
         """
         Setup test logger.
         It will also load (once) the test logging configuration.
-
-        :param name: the name of the logger.
-        :type name: str
         """
         logging.getLogger('%s.%s' % (__name__, 'Basic')).info('setup_logger()')
 
@@ -59,4 +56,4 @@ class Basic(object):
             company.package.logging.load_configuration(LOGGING_CONFIG_FILE)
             Basic.logging_loaded = True
 
-        self.logger = logging.getLogger(name)
+        self.logger = logging.getLogger('%s.%s' % (__name__, self.__class__.__name__))
