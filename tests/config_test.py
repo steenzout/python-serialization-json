@@ -115,7 +115,7 @@ class GetTestCase(unittest.TestCase):
     @mock.patch('company.package.config.load_configuration', autospec=True)
     def test_with_preloaded_settings(self, mock_load):
         """
-        Tests company.package.config.get() when no settings have been loaded.
+        Tests company.package.config.get() when settings have been loaded.
         """
         default = {'key2': 'value2'}
         company.package.config.settings = default
