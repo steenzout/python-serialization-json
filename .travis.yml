@@ -10,7 +10,7 @@ install:
 script:
 - tox
 after_script:
-- rm -rf /var/log/company
+- sudo rm -rf /var/log/company
 branches:
   only:
     - master
