@@ -36,7 +36,7 @@ class Basic(object):
         :param name: the name of the logger.
         :type name: str
         """
-        logging.getLogger('%s.%s' % (__name__, 'BaseTestCase')).info('setup_configuration()')
+        logging.getLogger('%s.%s' % (__name__, 'Basic')).info('setup_configuration()')
 
         if not Basic.configuration_loaded:
             company.package.config.load_configuration(PACKAGE_CONFIG_FILE)
@@ -52,7 +52,7 @@ class Basic(object):
         :param name: the name of the logger.
         :type name: str
         """
-        logging.getLogger('%s.%s' % (__name__, 'BaseTestCase')).info('setup_logger()')
+        logging.getLogger('%s.%s' % (__name__, 'Basic')).info('setup_logger()')
 
         if not Basic.logging_loaded:
             company.package.logging.load_configuration(LOGGING_CONFIG_FILE)
