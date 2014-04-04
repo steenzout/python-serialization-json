@@ -1,5 +1,9 @@
 """
+.. module:: company.package.tests
+    :platform: Unix
+    :synopsis:
 
+.. moduleauthor:: Your Name <email address>
 """
 
 import os
