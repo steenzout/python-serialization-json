@@ -64,7 +64,6 @@ class BaseTestCase(unittest.TestCase, Basic):
         :type methodName: str
         """
         super(BaseTestCase, self).__init__(methodName)
-        super(Basic, self).__init__()
 
         self.setup_logger()
         self.setup_configuration()
