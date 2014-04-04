@@ -75,7 +75,7 @@ class LoadTestCase(unittest.TestCase):
 
     def test_load_configuration_errors(self):
         """
-        Test company.package.config.load_configuration() when NoSectionErrors are raised.
+        Test company.package.config.load_configuration() when errors are raised.
         """
         self.mock_path.exists.return_value = True
         self.mock_path.isfile.return_value = True
