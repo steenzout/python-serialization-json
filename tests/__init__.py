@@ -8,10 +8,12 @@
 
 import os
 
-import logging
-
 import company.package.config
 import company.package.logging
+
+import logging
+
+import unittest
 
 
 LOGGING_CONFIG_FILE = '%s/tests/logging.conf' % os.curdir
@@ -54,3 +56,30 @@ class Basic(object):
             Basic.logging_loaded = True
 
         self.logger = logging.getLogger('%s.%s' % (__name__, self.__class__.__name__))
+
+
+class BaseTestCase(unittest.TestCase, Basic):
+    """
+    Base test case.
+    """
+
+    def setUp(self):
+        """
+        Setup test resources:
+        1. load logging configuration
+        2. load package configuration
+        """
+        self.logger.info('setUp()')
+
+        # 1
+        self.setup_logger()
+
+        # 2
+        self.setup_configuration()
+
+    def tearDown(self):
+        """
+        Tears down test resources:
+        1. remove temporary test database
+        """
+        self.logger.info('tearDown()')
