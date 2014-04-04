@@ -32,9 +32,6 @@ class Basic(object):
         """
         Setup test configuration.
         It will also load (once) the test configuration.
-
-        :param name: the name of the logger.
-        :type name: str
         """
         logging.getLogger('%s.%s' % (__name__, 'Basic')).info('setup_configuration()')
 
