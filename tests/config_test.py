@@ -132,7 +132,7 @@ class ResetTestCase(unittest.TestCase):
     @mock.patch('company.package.config.load_configuration', autospec=True)
     def test(self, mock_load):
         """
-        Tests company.package.config.get() when no settings have been loaded.
+        Tests company.package.config.reset().
         """
         default = {'key2': 'value2'}
         company.package.config.settings = default
