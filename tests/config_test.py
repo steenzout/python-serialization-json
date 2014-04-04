@@ -11,7 +11,7 @@ import unittest
 from company.package.config import DEFAULT_CONFIG_FILE
 
 
-class LoadTestCase(unittest.TestCase):
+class LoadConfigurationTestCase(unittest.TestCase):
     """
     Tests for the company.package.config.load_configuration() function.
     """
@@ -35,7 +35,7 @@ class LoadTestCase(unittest.TestCase):
         self.mock_read = self.patch_config_read.start()
         self.addCleanup(self.patch_config_read.stop)
 
-    def test_load_configuration(self):
+    def test(self):
         """
         Test company.package.config.load_configuration() when configuration file exists.
         """
@@ -53,7 +53,7 @@ class LoadTestCase(unittest.TestCase):
         self.mock_root_logger.info.assert_called_once_with(
             '%s configuration file was loaded.' % DEFAULT_CONFIG_FILE)
 
-    def test_load_configuration_nofile(self):
+    def test_nofile(self):
         """
         Test company.package.config.load_configuration() when the configuration file doesn't exist.
         """
@@ -73,7 +73,7 @@ class LoadTestCase(unittest.TestCase):
         self.mock_root_logger.error.assert_called_once_with(
             '%s configuration file does not exist!' % DEFAULT_CONFIG_FILE)
 
-    def test_load_configuration_errors(self):
+    def test_errors(self):
         """
         Test company.package.config.load_configuration() when errors are raised.
         """
@@ -102,7 +102,7 @@ class GetTestCase(unittest.TestCase):
     """
 
     @mock.patch('company.package.config.load_configuration', autospec=True)
-    def test_empty(self, mock_load):
+    def test(self, mock_load):
         """
         Tests company.package.config.get() when no settings have been loaded.
         """
