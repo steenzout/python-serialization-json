@@ -15,4 +15,4 @@ class ATestCase(unittest.TestCase, tests.Basic):
         self.assertFalse(self.logger is not None)
 
         self.assertFalse(self.configuration is not None)
-        self.assertEquals(self.configuration['key'], 'value')
+        self.assertEquals(self.configuration['company.package']['key'], 'value')
