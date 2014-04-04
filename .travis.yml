@@ -1,12 +1,13 @@
 language: python
 python:
-- TOXENV=py26
-- TOXENV=py27
+- py25
+- py26
+- py27
 install:
 - pip install -r requirements.txt --use-mirrors
 - pip install -r test-requirements.txt --use-mirrors
 script:
-- tox -e $TOX_ENV
+- py.test -q --basetemp={envtmpdir} --confcutdir=.. --pep8
 branches:
   only:
     - master
