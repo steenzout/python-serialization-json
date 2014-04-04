@@ -12,5 +12,5 @@ class VersionTestCase(unittest.TestCase):
         """
         from company.package import version
 
-        self.assertIsNotNone(version.__dict__)
+        self.assertFalse(version.__dict__ is None)
         self.assertTrue('__version__' in version.__dict__)
