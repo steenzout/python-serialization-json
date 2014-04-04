@@ -12,7 +12,10 @@ import unittest
 from company.package.logging import DEFAULT_CONFIG_FILE
 
 
-class ConfigTestCase(unittest.TestCase):
+class LoadConfigurationTestCase(unittest.TestCase):
+    """
+    Tests for the company.package.logging.load_configuration() function.
+    """
 
     def setUp(self):
         # mock of logging.RootLogger
@@ -33,7 +36,7 @@ class ConfigTestCase(unittest.TestCase):
         self.mock_fileConfig = self.patch_fileConfig.start()
         self.addCleanup(self.patch_fileConfig.stop)
 
-    def test_load_configuration(self):
+    def test(self):
         """
         Test company.package.logging.load_configuration().
         """
@@ -50,7 +53,7 @@ class ConfigTestCase(unittest.TestCase):
         self.assertTrue(self.mock_get_logger.called)
         self.mock_root_logger.info.assert_called_once_with('%s configuration file was loaded.' % DEFAULT_CONFIG_FILE)
 
-    def test_load_configuration_nofile(self):
+    def test_nofile(self):
         """
         Test company.package.logging.load_configuration() when the configuration file doesn't exist.
         """
@@ -68,9 +71,9 @@ class ConfigTestCase(unittest.TestCase):
         self.mock_root_logger.error.assert_called_once_with(
             '%s configuration file does not exist!' % DEFAULT_CONFIG_FILE)
 
-    def test_load_configuration_errors(self):
+    def test_errors(self):
         """
-        Test company.package.logging.load_configuration() when NoSectionErrors are raised.
+        Test company.package.logging.load_configuration() when errors are raised.
         """
         self.mock_path.exists.return_value = True
         self.mock_path.isfile.return_value = True
