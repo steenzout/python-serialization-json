@@ -39,6 +39,7 @@ class Basic(object):
         logging.getLogger('%s.%s' % (__name__, 'Basic')).info('setup_configuration()')
 
         if not Basic.configuration_loaded:
+            company.package.config.reset()
             company.package.config.load_configuration(PACKAGE_CONFIG_FILE)
             Basic.configuration_loaded = True
 
