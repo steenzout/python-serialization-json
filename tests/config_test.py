@@ -23,7 +23,7 @@ class LoadConfigurationTestCase(unittest.TestCase):
 
         self.patch_root_logger = mock.patch('company.package.config.logging.RootLogger', autospec=True)
         self.mock_root_logger = self.patch_root_logger.start()
-        self.addCleanup(self.patch_root_logger.stop)
+        self.mock_get_logger.return_value = self.mock_root_logger
 
         self.patch_path_exists = mock.patch('os.path', autospec=True)
         self.mock_path = self.patch_path_exists.start()
