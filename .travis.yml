@@ -10,6 +10,8 @@ install:
 - pip install -r test-requirements.txt --use-mirrors
 script:
 - tox
+after_script:
+- rm -rf /var/log/company
 branches:
   only:
     - master
