@@ -1,8 +1,7 @@
 import tests
-import unittest
 
 
-class ATestCase(unittest.TestCase, tests.Basic):
+class ATestCase(tests.BaseTestCase):
 
     def setUp(self):
         self.setup_configuration()
