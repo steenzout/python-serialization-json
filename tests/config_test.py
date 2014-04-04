@@ -118,7 +118,7 @@ class GetTestCase(unittest.TestCase):
         Tests company.package.config.get() when settings have been loaded.
         """
         default = {'key2': 'value2'}
-        company.package.config.settings = default
+        company.package.config.SETTINGS = default
 
         self.assertEquals(default, company.package.config.get())
         self.assertFalse(mock_load.called)
@@ -134,8 +134,8 @@ class ResetTestCase(unittest.TestCase):
         Tests company.package.config.reset().
         """
         default = {'key2': 'value2'}
-        company.package.config.settings = default
+        company.package.config.SETTINGS = default
 
         self.assertEquals(default, company.package.config.get())
         self.assertIsNone(company.package.config.reset())
-        self.assertIsNone(company.package.config.settings)
+        self.assertIsNone(company.package.config.SETTINGS)
