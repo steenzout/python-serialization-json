@@ -51,5 +51,6 @@ nosetests.xml
 
 # Custom : added by user
 !.coveragerc
+!.landscape.yaml
 !.travis.yml
 tests/junit.xml
