@@ -2,6 +2,7 @@ python-primogen
 ===============
 
 [![Build Status](https://travis-ci.org/steenzout/python-primogen.svg?branch=master)](https://travis-ci.org/steenzout/python-primogen)
+[![Code Health](https://landscape.io/github/steenzout/python-primogen/master/landscape.png)](https://landscape.io/github/steenzout/python-primogen/master)
 [![Requirements Status](https://requires.io/github/steenzout/python-primogen/requirements.png?branch=master)](https://requires.io/github/steenzout/python-primogen/requirements/?branch=master)
 
 This repository's goal is to be a starting point for Python projects.
