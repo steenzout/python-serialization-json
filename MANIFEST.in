@@ -1,5 +1,5 @@
 include README.md
 include requirements.txt
 include test-requirements.txt
-recursive-exclude src *.pyc
-recursive-exclude src *.pyo
+recursive-exclude company *.pyc
+recursive-exclude company *.pyo
