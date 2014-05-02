@@ -51,7 +51,7 @@ class LoadConfigurationTestCase(unittest.TestCase):
         self.mock_fileConfig.assert_called_with(DEFAULT_CONFIG_FILE, disable_existing_loggers=False)
 
         self.assertTrue(self.mock_get_logger.called)
-        self.mock_root_logger.info.assert_called_once_with('%s configuration file was loaded.' % DEFAULT_CONFIG_FILE)
+        self.mock_root_logger.info.assert_called_once_with('%s configuration file was loaded.', DEFAULT_CONFIG_FILE)
 
     def test_nofile(self):
         """
@@ -68,8 +68,8 @@ class LoadConfigurationTestCase(unittest.TestCase):
         self.assertFalse(self.mock_fileConfig.called)
 
         self.assertTrue(self.mock_get_logger.called)
-        self.mock_root_logger.error.assert_called_once_with(
-            '%s configuration file does not exist!' % DEFAULT_CONFIG_FILE)
+        self.mock_root_logger.error.assert_called_once_with((
+            '%s configuration file does not exist!', DEFAULT_CONFIG_FILE))
 
     def test_errors(self):
         """
@@ -88,6 +88,6 @@ class LoadConfigurationTestCase(unittest.TestCase):
 
         self.assertTrue(self.mock_get_logger.called)
         self.mock_root_logger.error.assert_called_once_with(
-            'Failed to load configuration from %s!' % DEFAULT_CONFIG_FILE)
+            'Failed to load configuration from %s!', DEFAULT_CONFIG_FILE)
         self.mock_root_logger.debug.assert_called_once_with(
             str(ValueError('fake error')), exc_info=True)
