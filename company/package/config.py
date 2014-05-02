@@ -43,12 +43,11 @@ def load_configuration(config_file=DEFAULT_CONFIG_FILE):
         SETTINGS = {}
         for section in parser.sections():
             SETTINGS[section] = dict(parser.items(section))
-        logging.getLogger(__name__).info('%s configuration file was loaded.' % config_file)
+        logging.getLogger(__name__).info('%s configuration file was loaded.', config_file)
         return SETTINGS
     except StandardError as error:
         SETTINGS = None
-        msg = 'Failed to load configuration from %s!' % config_file
-        logging.getLogger(__name__).error(msg)
+        logging.getLogger(__name__).error('Failed to load configuration from %s!', config_file)
         logging.getLogger(__name__).debug(str(error), exc_info=True)
         raise error
 
