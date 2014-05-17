@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import company.package
+
+
 from pip.req import parse_requirements
 
 from setuptools import find_packages, setup
 
-exec(open('company/package/version.py').read())
 setup(name='primogen',
-      version=__version__,
+      version=company.package.__version__,
       description='Python basic package.',
       author='Pedro Salgado',
       author_email='steenzout@ymail.com',

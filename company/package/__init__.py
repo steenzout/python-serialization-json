@@ -5,3 +5,5 @@
 
 .. moduleauthor:: Your Name <email address>
 """
+
+from company.package.version import __version__
