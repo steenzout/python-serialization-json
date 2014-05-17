@@ -16,6 +16,8 @@ class LoadConfigurationTestCase(unittest.TestCase):
     """
 
     def setUp(self):
+        company.package.config.reset()
+
         # mock of logging.RootLogger
         self.patch_get_logger = mock.patch('company.package.config.logging.getLogger', autospec=True)
         self.mock_get_logger = self.patch_get_logger.start()
@@ -102,6 +104,9 @@ class GetTestCase(unittest.TestCase):
     Tests for the company.package.config.get() function.
     """
 
+    def setUp(self):
+        company.package.config.reset()
+
     @mock.patch('company.package.config.load_configuration', autospec=True)
     def test(self, mock_load):
         """
@@ -129,6 +134,9 @@ class ResetTestCase(unittest.TestCase):
     """
     Tests for the company.package.config.reset() function.
     """
+
+    def setUp(self):
+        company.package.config.reset()
 
     def test(self):
         """
