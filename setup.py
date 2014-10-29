@@ -19,4 +19,4 @@ setup(name='primogen',
       namespace_packages=('company',),
       packages=find_packages(exclude=('*.tests', '*.tests.*', 'tests.*', 'tests', 'company')),
       install_requires=[str(pkg.req) for pkg in parse_requirements('requirements.txt')],
-      tests_requires=[str(pkg.req) for pkg in parse_requirements('test-requirements.txt')],)
+      tests_require=[str(pkg.req) for pkg in parse_requirements('test-requirements.txt')],)
