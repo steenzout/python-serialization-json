@@ -2,23 +2,23 @@ language: python
 python: 2.7
 
 env:
-- TOXENV=py26
-- TOXENV=py27
+  - TOXENV=py26
+  - TOXENV=py27
 
 install:
-- pip install tox
-- pip install -r requirements.txt
-- pip install -r test-requirements.txt
-- pip install coveralls
+  - pip install tox
+  - pip install -r requirements.txt
+  - pip install -r test-requirements.txt
 
 before_script:
-- mkdir -p log
+  - mkdir -p log
 
 script:
-- tox
+  - tox
 
 after_script:
-- rm -rf log
+  - rm -rf log
 
 after_success:
-- coveralls
+  - pip install coveralls
+  - coveralls
