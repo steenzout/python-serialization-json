@@ -20,5 +20,6 @@ after_script:
   - rm -rf log
 
 after_success:
+  - pylint company
   - pip install coveralls
   - coveralls
