@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import pip.download
+
 from pip.req import parse_requirements
 
 from setuptools import find_packages, setup
@@ -17,5 +19,9 @@ setup(name='primogen',
       url='https://github.com/steenzout/python-primogen',
       namespace_packages=('company',),
       packages=find_packages(exclude=('*.tests', '*.tests.*', 'tests.*', 'tests', 'company')),
-      install_requires=[str(pkg.req) for pkg in parse_requirements('requirements.txt')],
-      tests_require=[str(pkg.req) for pkg in parse_requirements('test-requirements.txt')],)
+      install_requires=[
+            str(pkg.req) for pkg in parse_requirements(
+                    'requirements.txt', session=pip.download.PipSession())],
+      tests_require=[
+            str(pkg.req) for pkg in parse_requirements(
+                    'test-requirements.txt', session=pip.download.PipSession())],)
