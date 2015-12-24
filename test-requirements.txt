@@ -1,4 +1,5 @@
 mock
+pylint
 pytest
 pytest-cov
 pytest-pep8
