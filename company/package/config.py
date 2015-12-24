@@ -22,7 +22,10 @@ DEFAULT_CONFIG_FILE = '/etc/package/package.cfg'
 
 
 class Cache(object):
-    SETTINGS = None
+    """
+    Abstract class to cache configuration settings.
+    """
+    settings = None
 
 
 def load_configuration(config_file=DEFAULT_CONFIG_FILE):
@@ -40,13 +43,13 @@ def load_configuration(config_file=DEFAULT_CONFIG_FILE):
     parser = ConfigParser()
     try:
         parser.read(config_file)
-        Cache.SETTINGS = {}
+        Cache.settings = {}
         for section in parser.sections():
-            Cache.SETTINGS[section] = dict(parser.items(section))
+            Cache.settings[section] = dict(parser.items(section))
         logging.getLogger(__name__).info('%s configuration file was loaded.', config_file)
-        return Cache.SETTINGS
+        return Cache.settings
     except StandardError as error:
-        SETTINGS = None
+        Cache.settings = None
         logging.getLogger(__name__).error('Failed to load configuration from %s!', config_file)
         logging.getLogger(__name__).debug(str(error), exc_info=True)
         raise error
@@ -59,13 +62,13 @@ def get():
     :return: the configuration.
     :rtype: object (configParser.ConfigParser)
     """
-    if Cache.SETTINGS is None:
+    if Cache.settings is None:
         return load_configuration()
-    return Cache.SETTINGS
+    return Cache.settings
 
 
 def reset():
     """
     Reset the configuration.
     """
-    Cache.SETTINGS = None
+    Cache.settings = None
