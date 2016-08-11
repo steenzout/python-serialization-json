@@ -4,7 +4,8 @@ include requirements.txt
 include test-requirements.txt
 include pytest.ini
 include tox.ini
-include tests *.py
+
+recursive-include tests *.py
 
 recursive-exclude company *.pyc
 recursive-exclude company *.pyo
