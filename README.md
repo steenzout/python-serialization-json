@@ -11,5 +11,14 @@
 [![Project Stats](https://www.openhub.net/p/python-steenzout-serialization-json/widgets/project_thin_badge.gif)](https://www.openhub.net/p/python-steenzout-serialization-json/)
 
 
+## Links
+
+- [python > 2.7 > json](https://docs.python.org/2.7/library/json.html)
+- [stackoverflow > How to convert JSON data into a Python object](http://stackoverflow.com/questions/6578986/how-to-convert-json-data-into-a-python-object)
+- [stackoverfliw > How to make simplejson serializable class](http://stackoverflow.com/questions/4821940/how-to-make-simplejson-serializable-class)
+- [stackoverflow > JSON datetime between Python and JavaScript](http://stackoverflow.com/questions/455580/json-datetime-between-python-and-javascript)
+- [stackoverflow > Serializing a Python namedtuple to json](http://stackoverflow.com/questions/5906831/serializing-a-python-namedtuple-to-json)
+- [Python Tips > Storing and Loading Data with JSON](https://pythontips.com/2013/08/08/storing-and-loading-data-with-json/)
+
 
 [license]:  https://raw.githubusercontent.com/steenzout/python-serialization-json/master/LICENSE   "License"
