@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Company namespace json.
+Serialization namespace package.
 """
 __import__('pkg_resources').declare_namespace(__name__)
