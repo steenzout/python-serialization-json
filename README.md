@@ -1,4 +1,4 @@
-# steenzout.serialization.json
+# serialization.json
 
 [![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)][license]
 [![Build Status](https://travis-ci.org/steenzout/python-serialization-json.svg?branch=master)](https://travis-ci.org/steenzout/python-serialization-json/)
