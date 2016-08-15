@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-.. module:: steenzout.serialization.json.tests
+.. module:: steenzout.serialization.json.version
     :platform: Unix
-    :synopsis:
+    :synopsis: Version module.
 
 .. moduleauthor:: Pedro Salgado <steenzout@ymail.com>
 """
+__version__ = '0.0.1'

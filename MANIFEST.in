@@ -7,5 +7,5 @@ include tox.ini
 
 recursive-include tests *.py
 
-recursive-exclude company *.pyc
-recursive-exclude company *.pyo
+recursive-exclude steenzout.serialization *.pyc
+recursive-exclude steenzout.serialization *.pyo

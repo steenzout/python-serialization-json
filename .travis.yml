@@ -20,6 +20,6 @@ after_script:
   - rm -rf log
 
 after_success:
-  - pylint company
+  - pylint steenzout.serialization
   - pip install coveralls
   - coveralls
