@@ -5,7 +5,7 @@
 [![Code Health](https://landscape.io/github/steenzout/python-serialization-json/steenzout/landscape.svg?style=flat)](https://landscape.io/github/steenzout/python-serialization-json/steenzout)
 [![Coverage Status](https://coveralls.io/repos/steenzout/python-serialization-json/badge.svg?branch=master&service=github)](https://coveralls.io/github/steenzout/python-serialization-json?branch=master)
 
-[![Requirements Status](https://requires.io/github/steenzout/python-serialization-json/requirements.svg?branch=steenzout)](https://requires.io/github/steenzout/python-serialization-json/requirements/?branch=master)
+[![Requirements Status](https://requires.io/github/steenzout/python-serialization-json/requirements.svg?branch=master)](https://requires.io/github/steenzout/python-serialization-json/requirements/?branch=master)
 [![pypi](https://img.shields.io/pypi/v/python-steenzout-serialization-json.svg)](https://pypi.python.org/pypi/python-steenzout-serialization-json/)
 
 [![Project Stats](https://www.openhub.net/p/python-steenzout-serialization-json/widgets/project_thin_badge.gif)](https://www.openhub.net/p/python-steenzout-serialization-json/)
