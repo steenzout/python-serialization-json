@@ -12,7 +12,7 @@ exec(open('steenzout/serialization/json/version.py').read())
 setup(
     name='steenzout.serialization.json',
     version=__version__,
-    description='Steenzout JSON serialization json.',
+    description='Steenzout JSON serialization package.',
     author='Pedro Salgado',
     author_email='steenzout@ymail.com',
     maintainer='Pedro Salgado',
