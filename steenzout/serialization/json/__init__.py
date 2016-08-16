@@ -29,27 +29,27 @@ from . import encoders
 from .version import __version__
 
 
-__logger = logging.getLogger('steenzout.serialization.json')
+LOGGER = logging.getLogger('steenzout.serialization.json')
 
 
-def serialize(o):
+def serialize(obj):
     """
     Serialize the given object into JSON.
 
-    :param o: the object to be serialized.
+    :param obj: the object to be serialized.
 
     :return: JSON representation of the given object.
     :rtype: str
     """
-    __logger.debug('serialize(%s)', o)
+    LOGGER.debug('serialize(%s)', obj)
 
-    if isinstance(o, datetime.date):
-        return simplejson.dumps(o, default=encoders.as_date)
+    if isinstance(obj, datetime.date):
+        return simplejson.dumps(obj, default=encoders.as_date)
 
-    elif hasattr(o, '__dict__'):
-        return simplejson.dumps(o, default=encoders.as_object)
+    elif hasattr(obj, '__dict__'):
+        return simplejson.dumps(obj, default=encoders.as_object)
 
-    return simplejson.dumps(o)
+    return simplejson.dumps(obj)
 
 
 def deserialize(json, cls=None):
@@ -66,7 +66,7 @@ def deserialize(json, cls=None):
 
     :return: Python object representation of the given JSON string.
     """
-    __logger.debug('deserialize(%s)', json)
+    LOGGER.debug('deserialize(%s)', json)
 
     out = simplejson.loads(json)
 
@@ -74,3 +74,13 @@ def deserialize(json, cls=None):
         return cls(**out)
 
     return out
+
+
+def version():
+    """
+    Return this package version.
+
+    :return: package version.
+    :rtype: str
+    """
+    return __version__

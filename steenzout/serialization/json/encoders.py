@@ -22,43 +22,41 @@
 """
 
 import calendar
-import datetime
 import logging
-import simplejson
 import strict_rfc3339
 
 
-__logger = logging.getLogger('steenzout.serialization.json.encoders')
+LOGGER = logging.getLogger('steenzout.serialization.json.encoders')
 
 
-def as_object(o):
+def as_object(obj):
     """
     Returns a JSON serializable type for ``o``.
 
-    :param o: the object to be serialized.
-    :type o: object
+    :param obj: the object to be serialized.
+    :type obj: object
 
     :raises AttributeError: in case the given ``o`` is not a Python object.
 
     :return: JSON serializable type for the given object.
     """
-    __logger.debug('as_object(%s)', o)
+    LOGGER.debug('as_object(%s)', obj)
 
-    return o.__dict__
+    return obj.__dict__
 
 
-def as_date(o):
+def as_date(dt):
     """
     Returns the RFC3339 UTC string representation of the given date and time.
 
-    :param o: the object/type to be serialized.
-    :type o: datetime.date
+    :param dt: the object/type to be serialized.
+    :type dt: datetime.date
 
     :raises TypeError: in case the given ``o`` is not an instance of ``datetime.date``.
 
     :return: JSON serializable type for the given object.
     """
-    __logger.debug('as_date(%s)', o)
+    LOGGER.debug('as_date(%s)', dt)
 
     return strict_rfc3339.timestamp_to_rfc3339_utcoffset(
-        calendar.timegm(o.timetuple()))
+        calendar.timegm(dt.timetuple()))
