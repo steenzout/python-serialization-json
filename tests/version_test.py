@@ -27,7 +27,8 @@ class VersionTestCase(unittest.TestCase):
         """
         Tests the version module attributes.
         """
-        from steenzout.serialization.json import version
+        import steenzout.serialization.json
 
-        self.assertFalse(version.__dict__ is None)
-        self.assertTrue('__version__' in version.__dict__)
+        self.assertTrue(
+            steenzout.serialization.json.version() == steenzout.serialization.json.__version__
+        )
