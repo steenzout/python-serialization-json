@@ -46,7 +46,7 @@ def serialize(o):
     if isinstance(o, datetime.date):
         return simplejson.dumps(o, default=encoders.as_date)
 
-    elif isinstance(o, object):
+    elif hasattr(o, '__dict__'):
         return simplejson.dumps(o, default=encoders.as_object)
 
     return simplejson.dumps(o)
