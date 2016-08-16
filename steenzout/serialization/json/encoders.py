@@ -45,18 +45,18 @@ def as_object(obj):
     return obj.__dict__
 
 
-def as_date(dt):
+def as_date(dat):
     """
     Returns the RFC3339 UTC string representation of the given date and time.
 
-    :param dt: the object/type to be serialized.
-    :type dt: datetime.date
+    :param dat: the object/type to be serialized.
+    :type dat: datetime.date
 
     :raises TypeError: in case the given ``o`` is not an instance of ``datetime.date``.
 
     :return: JSON serializable type for the given object.
     """
-    LOGGER.debug('as_date(%s)', dt)
+    LOGGER.debug('as_date(%s)', dat)
 
     return strict_rfc3339.timestamp_to_rfc3339_utcoffset(
-        calendar.timegm(dt.timetuple()))
+        calendar.timegm(dat.timetuple()))
