@@ -23,45 +23,33 @@
 
 import datetime
 import simplejson
-import six
 
 from . import encoders
 from .version import __version__
-
-
-SerializationMapping = {
-    object: {
-        'default': encoders.as_object,
-        'sort_keys': True
-    },
-    datetime.date: {
-        'default': encoders.as_date
-    }
-}
 
 
 def serialize(o):
     """
     Serializes the given object into JSON.
 
-    :param o: the object/type to be serialized.
+    :param o: the object to be serialized.
 
-    :return: JSON representation of the given object/type.
+    :return: JSON representation of the given object.
     :rtype: str
     """
 
-    kwargs = {'default': None}
-    for t, args in six.iteritems(SerializationMapping):
-        if isinstance(o, t):
-            kwargs = args
-            break
+    if isinstance(o, datetime.date):
+        return simplejson.dumps(o, default=encoders.as_date)
 
-    return simplejson.dumps(o, **kwargs)
+    elif isinstance(o, object):
+        return simplejson.dumps(o, default=encoders.as_object)
+
+    return simplejson.dumps(o)
 
 
 def deserialize(json, cls=None):
     """
-    Deserializes a JSON string into a Python object or type.
+    Deserializes a JSON string into a Python object.
 
     :param json: the JSON string.
     :type json: str
@@ -71,7 +59,7 @@ def deserialize(json, cls=None):
                 given ``cls`` initializer.
     :type cls: classobj
 
-    :return: Python object/type representation of the given object.
+    :return: Python object representation of the given JSON string.
     """
     out = simplejson.loads(json)
 
