@@ -1,3 +1,2 @@
 simplejson
-six
 strict_rfc3339
