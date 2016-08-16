@@ -1,4 +1,13 @@
 doc-warnings: yes
-test-warnings: no
-strictness: veryhigh
+ignore-paths:
+  - docs
+  - setup.py
 max-line-length: 119
+python-targets:
+  - 2
+  - 3
+requirements:
+  - requirements.txt
+  - test-requirements.txt
+strictness: veryhigh
+test-warnings: no
