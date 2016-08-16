@@ -38,9 +38,9 @@ def as_object(o):
     :param o: the object to be serialized.
     :type o: object
 
-    :return: JSON serializable type for the given object/type.
+    :raises AttributeError: in case the given ``o`` is not a Python object.
 
-    :raises TypeError: in case the given ``o`` is not a Python object.
+    :return: JSON serializable type for the given object.
     """
     __logger.debug('as_object(%s)', o)
 
@@ -54,9 +54,9 @@ def as_date(o):
     :param o: the object/type to be serialized.
     :type o: datetime.date
 
-    :return: JSON serializable type for the given object/type.
-
     :raises TypeError: in case the given ``o`` is not an instance of ``datetime.date``.
+
+    :return: JSON serializable type for the given object.
     """
     __logger.debug('as_date(%s)', o)
 
