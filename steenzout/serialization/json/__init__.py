@@ -58,7 +58,7 @@ def deserialize(json, cls=None):
 
     :param json: the JSON string.
     :type json: str
-    :param cls: if the ``jsonstr`` is deserialized into a ``dict`` and
+    :param cls: if the ``json`` is deserialized into a ``dict`` and
                 this argument is set,
                 the ``dict`` keys are passed as keyword arguments to the
                 given ``cls`` initializer.
