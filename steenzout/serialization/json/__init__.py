@@ -22,10 +22,14 @@
 """
 
 import datetime
+import logging
 import simplejson
 
 from . import encoders
 from .version import __version__
+
+
+__logger = logging.getLogger('steenzout.serialization.json')
 
 
 def serialize(o):
@@ -37,6 +41,7 @@ def serialize(o):
     :return: JSON representation of the given object.
     :rtype: str
     """
+    __logger.debug('serialize(%s)', o)
 
     if isinstance(o, datetime.date):
         return simplejson.dumps(o, default=encoders.as_date)
@@ -61,6 +66,8 @@ def deserialize(json, cls=None):
 
     :return: Python object representation of the given JSON string.
     """
+    __logger.debug('deserialize(%s)', json)
+
     out = simplejson.loads(json)
 
     if isinstance(out, dict) and cls is not None:
