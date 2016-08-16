@@ -56,6 +56,11 @@ class PackageTestCase(unittest.TestCase):
         a = A(1, 2)
         self.assertEqual(a, json.deserialize('{"x": 1, "y": 2}', cls=A))
 
+    def test_deserialize_other(self):
+        """Test serialize() function."""
+
+        self.assertEqual(1, json.deserialize('1'))
+
     def test_serialize_date(self):
         """Test serialize() function."""
 
@@ -87,3 +92,8 @@ class PackageTestCase(unittest.TestCase):
             '{"x": 1, "y": 2}' == result or
             '{"y": 2, "x": 1}' == result
         )
+
+    def test_serialize_other(self):
+        """Test serialize() function."""
+
+        self.assertEqual('1', json.serialize(1))
