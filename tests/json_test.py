@@ -65,7 +65,7 @@ class PackageTestCase(unittest.TestCase):
         )
         self.assertEqual('"%s"' % dt_rfc3339, json.serialize(dt))
 
-    def test_serialize_date(self):
+    def test_serialize_datetime(self):
         """Test serialize() function."""
 
         t = datetime(2016, 8, 15, 12, 0, 1, 999999)  # in UTC
@@ -82,5 +82,8 @@ class PackageTestCase(unittest.TestCase):
                 self.x = x
                 self.y = y
 
-        a = A(1, 2)
-        self.assertEqual('{"x": 1, "y": 2}', json.serialize(a))
+        result = json.serialize(A(1, 2))
+        self.assertTrue(
+            '{"x": 1, "y": 2}' == result or
+            '{"y": 2, "x": 1}' == result
+        )
