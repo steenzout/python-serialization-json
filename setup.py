@@ -17,8 +17,8 @@ setup(name='steenzout.serialization.json',
       maintainer='Pedro Salgado',
       maintainer_email='steenzout@ymail.com',
       url='https://github.com/steenzout/python-serialization-json',
-      namespace_jsons=('steenzout.serialization',),
-      packages=find_packages(exclude=('*.tests', '*.tests.*', 'tests.*', 'tests', 'steenzout.serialization')),
+      namespace_packages=('steenzout', 'steenzout.serialization',),
+      packages=find_packages(exclude=('*.tests', '*.tests.*', 'tests.*', 'tests')),
       install_requires=[
             str(pkg.req) for pkg in parse_requirements(
                     'requirements.txt', session=pip.download.PipSession())],
