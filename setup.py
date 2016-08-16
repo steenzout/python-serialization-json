@@ -26,6 +26,7 @@ setup(
     tests_require=[
         str(pkg.req) for pkg in parse_requirements(
                 'test-requirements.txt', session=pip.download.PipSession())],
+    license='Apache 2.0',
     classifiers=(
       'Development Status :: 5 - Production/Stable',
       'Intended Audience :: Developers',
