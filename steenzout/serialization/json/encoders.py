@@ -31,7 +31,7 @@ LOGGER = logging.getLogger('steenzout.serialization.json.encoders')
 
 def as_object(obj):
     """
-    Returns a JSON serializable type for ``o``.
+    Return a JSON serializable type for ``o``.
 
     :param obj: the object to be serialized.
     :type obj: object
@@ -47,7 +47,7 @@ def as_object(obj):
 
 def as_date(dat):
     """
-    Returns the RFC3339 UTC string representation of the given date and time.
+    Return the RFC3339 UTC string representation of the given date and time.
 
     :param dat: the object/type to be serialized.
     :type dat: datetime.date
