@@ -34,7 +34,7 @@ __logger = logging.getLogger('steenzout.serialization.json')
 
 def serialize(o):
     """
-    Serializes the given object into JSON.
+    Serialize the given object into JSON.
 
     :param o: the object to be serialized.
 
@@ -54,7 +54,7 @@ def serialize(o):
 
 def deserialize(json, cls=None):
     """
-    Deserializes a JSON string into a Python object.
+    Deserialize a JSON string into a Python object.
 
     :param json: the JSON string.
     :type json: str
