@@ -3,7 +3,7 @@ include LICENSE
 include NOTICE.md
 include requirements.txt
 include docs-requirements.txt
-include test-requirements.txt
+include requirements-test.txt
 include pytest.ini
 include tox.ini
 
