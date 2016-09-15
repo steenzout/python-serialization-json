@@ -28,13 +28,13 @@ LOGGER = logging.getLogger('steenzout.serialization.json')
 
 
 def serialize(obj):
-    """
-    Serialize the given object into JSON.
+    """Serialize the given object into JSON.
 
-    :param obj: the object to be serialized.
+    Args:
+        obj: the object to be serialized.
 
-    :return: JSON representation of the given object.
-    :rtype: str
+    Returns:
+        (str): JSON representation of the given object.
     """
     LOGGER.debug('serialize(%s)', obj)
 
@@ -48,18 +48,18 @@ def serialize(obj):
 
 
 def deserialize(json, cls=None):
-    """
-    Deserialize a JSON string into a Python object.
+    """Deserialize a JSON string into a Python object.
 
-    :param json: the JSON string.
-    :type json: str
-    :param cls: if the ``json`` is deserialized into a ``dict`` and
-                this argument is set,
-                the ``dict`` keys are passed as keyword arguments to the
-                given ``cls`` initializer.
-    :type cls: classobj
+    Args:
+        json (str): the JSON string.
+        cls (:py:class:`object`):
+            if the ``json`` is deserialized into a ``dict`` and
+            this argument is set,
+            the ``dict`` keys are passed as keyword arguments to the
+            given ``cls`` initializer.
 
-    :return: Python object representation of the given JSON string.
+    Returns:
+        Python object representation of the given JSON string.
     """
     LOGGER.debug('deserialize(%s)', json)
 
@@ -72,10 +72,9 @@ def deserialize(json, cls=None):
 
 
 def version():
-    """
-    Return this package version.
+    """Return this package version.
 
-    :return: package version.
-    :rtype: str
+    Returns:
+        (str): package version.
     """
     return __version__

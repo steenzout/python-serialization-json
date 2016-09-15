@@ -25,15 +25,17 @@ LOGGER = logging.getLogger('steenzout.serialization.json.encoders')
 
 
 def as_object(obj):
-    """
-    Return a JSON serializable type for ``o``.
+    """Return a JSON serializable type for ``o``.
 
-    :param obj: the object to be serialized.
-    :type obj: object
+    Args:
+        obj (:py:class:`object`): the object to be serialized.
 
-    :raises AttributeError: in case the given ``o`` is not a Python object.
+    Raises:
+        :py:class:`AttributeError`:
+            when ``o`` is not a Python object.
 
-    :return: JSON serializable type for the given object.
+    Returns:
+        (dict): JSON serializable type for the given object.
     """
     LOGGER.debug('as_object(%s)', obj)
 
@@ -41,15 +43,17 @@ def as_object(obj):
 
 
 def as_date(dat):
-    """
-    Return the RFC3339 UTC string representation of the given date and time.
+    """Return the RFC3339 UTC string representation of the given date and time.
 
-    :param dat: the object/type to be serialized.
-    :type dat: datetime.date
+    Args:
+        dat (:py:class:`datetime.date`): the object/type to be serialized.
 
-    :raises TypeError: in case the given ``o`` is not an instance of ``datetime.date``.
+    Raises:
+        TypeError:
+            when ``o`` is not an instance of ``datetime.date``.
 
-    :return: JSON serializable type for the given object.
+    Returns:
+        (str) JSON serializable type for the given object.
     """
     LOGGER.debug('as_date(%s)', dat)
 
