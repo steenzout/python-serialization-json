@@ -14,12 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-"""
-.. module:: steenzout.serialization.json.encoders
-    :synopsis: Company json.
-
-.. moduleauthor:: Pedro Salgado <steenzout@ymail.com>
-"""
+"""JSON encoders module."""
 
 import calendar
 import logging

@@ -14,12 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-"""
-.. module:: steenzout.serialization.json
-    :synopsis: JSON serialization/deserialization package.
-
-.. moduleauthor:: Pedro Salgado <steenzout@ymail.com>
-"""
+"""JSON serialization package."""
 
 import datetime
 import logging
