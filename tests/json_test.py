@@ -14,9 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-"""
-Test cases for the steenzout.serialization.json package.
-"""
+"""Unit tests for the json package."""
 
 import calendar
 import strict_rfc3339
@@ -49,7 +47,7 @@ class PackageTestCase(unittest.TestCase):
     def test_deserialize_object(self):
         """Test deserialize() function."""
         class A(Object):
-            def __init__(self, x, y):
+            def __init__(self, x=None, y=None):
                 self.x = x
                 self.y = y
 
@@ -83,17 +81,49 @@ class PackageTestCase(unittest.TestCase):
         """Test serialize() function."""
 
         class A(Object):
-            def __init__(self, x, y):
+            def __init__(self, x=None, y=None):
                 self.x = x
                 self.y = y
 
         result = json.serialize(A(1, 2))
         self.assertTrue(
             '{"x": 1, "y": 2}' == result or
-            '{"y": 2, "x": 1}' == result
+            '{"y": 2, "x": 1}' == result,
+            'result=%s' % result
+        )
+
+    def test_serialize_object_with_properties(self):
+        """Test serialize() function with object with properties."""
+
+        class A:
+            def __init__(self, att=None, ro=None, rw=None):
+                self.att = att
+                self._ro = ro
+                self._rw = rw
+                self._hidden = True
+
+            @property
+            def ro(self):
+                return self._ro
+
+            @property
+            def rw(self):
+                return self._rw
+
+            @rw.setter
+            def rw(self, value):
+                self._rw = value
+
+        result = json.serialize(A(1, 1, 1))
+        self.assertTrue(
+            '{"att": 1, "ro": 1, "rw": 1}' == result or
+            '{"att": 1, "rw": 1, "ro": 1}' == result or
+            '{"ro": 1, "att": 1, "rw": 1}' == result or
+            '{"ro": 1, "rw": 1, "att": 1}' == result or
+            '{"rw": 1, "ro": 1, "att": 1}' == result or
+            '{"rw": 1, "att": 1, "ro": 1}' == result
         )
 
     def test_serialize_other(self):
         """Test serialize() function."""
-
         self.assertEqual('1', json.serialize(1))
