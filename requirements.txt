@@ -1,2 +1,2 @@
-#json==version
-#-e git+ssh://github.com/steenzout/example.git@TAG#egg=example
+simplejson==3.8.2
+strict_rfc3339==0.7

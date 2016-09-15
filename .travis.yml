@@ -1,25 +1,43 @@
 language: python
-python: 2.7
 
-env:
-  - TOXENV=py26
-  - TOXENV=py27
+branches:
+  except:
+    - gh-pages
+
+cache:
+  directories:
+    - "${HOME}/virtualenv"
+    - "${TRAVIS_BUILD_DIR}/.tox"
+
+python:
+  - 2.7
+  - 3.3
+  - 3.4
+  - 3.5
+  - 3.6
+  - pypy
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - python: 3.6
 
 install:
-  - pip install tox
-  - pip install -r requirements.txt
-  - pip install -r test-requirements.txt
-
-before_script:
-  - mkdir -p log
+  - pip install tox tox-travis
 
 script:
   - tox
-
-after_script:
-  - rm -rf log
+  - "find ${TRAVIS_BUILD_DIR}/.tox -name log -o -name __pycache__ -type d | xargs -I {} rm -rf {}"
 
 after_success:
   - pylint steenzout.serialization
   - pip install coveralls
   - coveralls
+
+deploy:
+  provider: pypi
+  user: steenzout
+  password:
+    secure: wEeN3o459RMgYlISAhQ9X2ZztyvtRFWQuJ/ZGVX26fWlpwF5DwYHgtENqIrCwYs04gDQ9BZTvbh0YTynbLCAP7/Q8G6hGvnMX8AQpaYrUYO0vCXT/ZREQLuTZKRSzpMHhahy3F3dGOgpqoDQP5q1FgIsEAt/FUKl0zOsa6yl7RSD1VEe9h3X7lybe9gnpezNH9EmZpVgxSGdr5kqDmDzkGAsZVscLtmULjPDhqAabE+ppqhXF3IRNljpFSi2PHaDYFdkbavGZ6pWq6z9CC/87EBC3YMZFDil2Cu0ifMkfkqyuGaA7780EhnYs9YFv4M/kQ/SQAvByoQDiLPGAZqijcdnbdukw2ZofgtwGluqH5tjNQQGYNoO7Hknk/hnoPfkJukC4a+hdzUzDSd88cix5fYlnxxlZs2ABqqUiDfgJY1oV5lwMrNqvv8uRTs6vtWhhWjyK/1GPdP0nwbFM5z4Hl1frl6LF3wdqKVUcfDVKcny2kRf+2YBHBcmXCqdyxHAQW8RJa9k9CX9CVK9LsI4jQmKvPrZaK/ZC/mC8Vy2Kc6D0C+qIq1+iOVyLmnYqjnSd5nYCbqL4imX7j9RhX8p4HXnjOns1fK+hHf9Ni1Ojcz5mXEyynpGKIlyQw00GpbCNd8DV5kYntJtewANokODXR4AYZFWG4Ro1O4c3Qj3GrM=
+  on:
+    tags: true
