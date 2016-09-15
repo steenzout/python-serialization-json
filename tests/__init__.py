@@ -14,10 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-"""
-.. module:: steenzout.serialization.json.tests
-    :platform: Unix
-    :synopsis:
-
-.. moduleauthor:: Pedro Salgado <steenzout@ymail.com>
-"""
+"""Unit tests for the steenzout.serialization.json package."""
