@@ -1,1 +1,1 @@
-steenzout.sphinx==1.0.12
+steenzout.sphinx==1.0.14
