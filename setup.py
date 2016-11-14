@@ -7,39 +7,25 @@ from pip.req import parse_requirements
 
 from setuptools import find_packages, setup
 
-exec(open('steenzout/serialization/json/version.py').read())
+exec(open('steenzout/serialization/json/metadata.py').read())
 
 setup(
     name='steenzout.serialization.json',
     version=__version__,
-    description='Steenzout JSON serialization package.',
-    author='Pedro Salgado',
-    author_email='steenzout@ymail.com',
-    maintainer='Pedro Salgado',
-    maintainer_email='steenzout@ymail.com',
-    url='https://github.com/steenzout/python-serialization-json',
-    namespace_packages=['steenzout', 'steenzout.serialization'],
+    description=__description__,
+    author=__author__,
+    author_email=__author_email__,
+    maintainer=__maintainer__,
+    maintainer_email=__maintainer_email__,
+    url=__url__,
+    namespace_packages=['steenzout'],
     packages=find_packages(exclude=('*.tests', '*.tests.*', 'tests.*', 'tests')),
+    package_data={'': ['LICENSE', 'NOTICE.md']},
     install_requires=[
         str(pkg.req) for pkg in parse_requirements(
-                'requirements.txt', session=pip.download.PipSession())],
+            'requirements.txt', session=pip.download.PipSession())],
     tests_require=[
         str(pkg.req) for pkg in parse_requirements(
-                'requirements-test.txt', session=pip.download.PipSession())],
-    license='Apache 2.0',
-    classifiers=(
-      'Development Status :: 5 - Production/Stable',
-      'Intended Audience :: Developers',
-      'Natural Language :: English',
-      'License :: OSI Approved :: Apache Software License',
-      'Programming Language :: Python',
-      'Programming Language :: Python :: 2.7',
-      'Programming Language :: Python :: 3',
-      'Programming Language :: Python :: 3.3',
-      'Programming Language :: Python :: 3.4',
-      'Programming Language :: Python :: 3.5',
-      'Programming Language :: Python :: 3.6',
-      'Programming Language :: Python :: Implementation :: CPython',
-      'Programming Language :: Python :: Implementation :: PyPy'
-    )
-)
+            'requirements-test.txt', session=pip.download.PipSession())],
+    license=__license__,
+    classifiers=__classifiers__)
