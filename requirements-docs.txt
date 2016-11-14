@@ -1,1 +1,4 @@
+recommonmark==0.4.0
+semantic_version==2.6.0
+sphinx_rtd_theme==0.1.9
 steenzout.sphinx==1.0.14
