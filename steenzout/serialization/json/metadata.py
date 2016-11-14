@@ -14,6 +14,35 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-"""Version module"""
+"""Metadata module."""
+
+__author__ = 'Pedro Salgado'
+__author_email__ = 'steenzout@ymail.com'
+
+__classifiers__ = (
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
+    'License :: OSI Approved :: Apache Software License',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.3',
+    'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Programming Language :: Python :: Implementation :: PyPy'
+)
+
+__description__ = 'Steenzout JSON serialization package.'
+
+__license__ = 'Apache 2.0'
+
+__maintainer__ = 'Pedro Salgado'
+__maintainer_email__ = 'steenzout@ymail.com'
+
+__url__ = 'https://github.com/steenzout/python-serialization-json'
 
 __version__ = '1.0.2'
+
