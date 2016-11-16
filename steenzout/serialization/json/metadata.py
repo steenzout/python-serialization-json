@@ -45,4 +45,3 @@ __maintainer_email__ = 'steenzout@ymail.com'
 __url__ = 'https://github.com/steenzout/python-serialization-json'
 
 __version__ = '1.0.2'
-
