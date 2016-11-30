@@ -81,16 +81,25 @@ class PackageTestCase(unittest.TestCase):
         """Test serialize() function."""
 
         class A(Object):
-            def __init__(self, x=None, y=None):
+            def __init__(self, x=None, y=None, d=None):
                 self.x = x
                 self.y = y
+                self.d = d
 
-        result = json.serialize(A(1, 2))
-        self.assertTrue(
-            '{"x": 1, "y": 2}' == result or
-            '{"y": 2, "x": 1}' == result,
-            'result=%s' % result
+        now = datetime.now()
+        now_rfc3339 = strict_rfc3339.timestamp_to_rfc3339_utcoffset(
+            calendar.timegm(now.timetuple())
         )
+        result = json.serialize(A(1, 2, now))
+        result_dict = eval(result)
+
+        assert len(result_dict) == 3
+        assert 'x' in result_dict
+        assert result_dict['x'] == 1
+        assert 'y' in result_dict
+        assert result_dict['y'] == 2
+        assert 'd' in result_dict
+        assert result_dict['d'] == now_rfc3339
 
     def test_serialize_object_with_properties(self):
         """Test serialize() function with object with properties."""
