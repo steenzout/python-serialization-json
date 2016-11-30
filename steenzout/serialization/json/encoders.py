@@ -17,6 +17,7 @@
 """JSON encoders module."""
 
 import calendar
+import datetime
 import inspect
 import logging
 import strict_rfc3339
@@ -40,19 +41,24 @@ def as_object(obj):
     """
     LOGGER.debug('as_object(%s)', obj)
 
-    # populate dict with visible attributes
-    out = {k: obj.__dict__[k] for k in obj.__dict__ if not k.startswith('_')}
+    if isinstance(obj, datetime.date):
+        return as_date(obj)
 
-    # populate dict with property names and values
-    for k, v in (
-            (p, getattr(obj, p))
-            for p, _ in inspect.getmembers(
-                obj.__class__,
-                lambda x: isinstance(x, property))
-    ):
-        out[k] = v
+    elif hasattr(obj, '__dict__'):
 
-    return out
+        # populate dict with visible attributes
+        out = {k: obj.__dict__[k] for k in obj.__dict__ if not k.startswith('_')}
+
+        # populate dict with property names and values
+        for k, v in (
+                (p, getattr(obj, p))
+                for p, _ in inspect.getmembers(
+                    obj.__class__,
+                    lambda x: isinstance(x, property))
+        ):
+            out[k] = v
+
+        return out
 
 
 def as_date(dat):

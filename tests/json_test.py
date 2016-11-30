@@ -22,6 +22,8 @@ import unittest
 
 from datetime import date, datetime
 
+from six import string_types
+
 from steenzout.object import Object
 from steenzout.serialization import json
 
@@ -81,16 +83,60 @@ class PackageTestCase(unittest.TestCase):
         """Test serialize() function."""
 
         class A(Object):
-            def __init__(self, x=None, y=None):
+            def __init__(self, x=None, y=None, d=None, o=None):
                 self.x = x
                 self.y = y
+                self.d = d
+                self.o = o
 
-        result = json.serialize(A(1, 2))
-        self.assertTrue(
-            '{"x": 1, "y": 2}' == result or
-            '{"y": 2, "x": 1}' == result,
-            'result=%s' % result
+            @property
+            def d(self):
+                return self._d
+
+            @d.setter
+            def d(self, value):
+                if isinstance(value, string_types):
+                    self._d = strict_rfc3339.rfc3339_to_timestamp(value)
+                elif isinstance(value, date):
+                    self._d = value
+                else:
+                    raise ValueError('Property d does not allow %s' % type(value))
+
+            @property
+            def o(self):
+                return self._o
+
+            @o.setter
+            def o(self, value):
+                if value is None:
+                    self._o = None
+                elif isinstance(value, dict):
+                    self._o = A(**value)
+                elif isinstance(value, A):
+                    self._o = value
+                else:
+                    raise ValueError('Property o does not allow %s' % type(value))
+
+        now = datetime.now()
+        now_rfc3339 = strict_rfc3339.timestamp_to_rfc3339_utcoffset(
+            calendar.timegm(now.timetuple())
         )
+        o = A(1, 2, now, None)
+        result = json.serialize(A(1, 2, now, o))
+        result_dict = json.deserialize(result)
+
+        assert len(result_dict) == 4
+        assert 'x' in result_dict
+        assert result_dict['x'] == 1
+        assert 'y' in result_dict
+        assert result_dict['y'] == 2
+        assert 'd' in result_dict
+        assert result_dict['d'] == now_rfc3339
+        assert 'o' in result_dict
+        assert result_dict['o']['x'] == o.x
+        assert result_dict['o']['y'] == o.y
+        assert result_dict['o']['d'] == now_rfc3339
+        assert result_dict['o']['o'] == o.o
 
     def test_serialize_object_with_properties(self):
         """Test serialize() function with object with properties."""
@@ -99,7 +145,7 @@ class PackageTestCase(unittest.TestCase):
             def __init__(self, att=None, ro=None, rw=None):
                 self.att = att
                 self._ro = ro
-                self._rw = rw
+                self.rw = rw
                 self._hidden = True
 
             @property

@@ -21,7 +21,7 @@ import logging
 import simplejson
 
 from . import encoders
-from .version import __version__
+from .metadata import __version__
 
 
 LOGGER = logging.getLogger('steenzout.serialization.json')
