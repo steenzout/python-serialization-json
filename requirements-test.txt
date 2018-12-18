@@ -4,4 +4,4 @@ pytest
 pytest-cov
 pytest-pep8
 pytest-xdist
-steenzout.object==1.0.16
+steenzout.object==1.0.18

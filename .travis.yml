@@ -1,44 +1,36 @@
 language: python
-
 branches:
   except:
-    - gh-pages
-
+  - gh-pages
 cache:
   directories:
-    - "${HOME}/.pip"
-
+  - "${HOME}/.pip"
 before_cache:
-  - "find ${HOME}/.pip -name log -o -name __pycache__ -type d | xargs -I {} rm -rf {}"
-
+- find ${HOME}/.pip -name log -o -name __pycache__ -type d | xargs -I {} rm -rf {}
 python:
-  - 2.7
-  - 3.5
-  - 3.6
-  - 3.7
-  - pypy
-
+- 2.7
+- 3.5
+- 3.6
+- 3.7
+- pypy
 matrix:
   fast_finish: true
   allow_failures:
-    - python: 3.7
-
+  - python: 3.7
 install:
-  - pip install tox tox-travis
-
+- pip install tox tox-travis
 script:
-  - tox
-  - "find ${TRAVIS_BUILD_DIR}/.tox -name log -o -name __pycache__ -type d | xargs -I {} rm -rf {}"
-
+- tox
+- find ${TRAVIS_BUILD_DIR}/.tox -name log -o -name __pycache__ -type d | xargs -I
+  {} rm -rf {}
 after_success:
-  - pylint steenzout.serialization
-  - pip install coveralls
-  - coveralls
-
+- pylint steenzout.serialization
+- pip install coveralls
+- coveralls
 deploy:
   provider: pypi
   user: steenzout
   password:
-    secure: wEeN3o459RMgYlISAhQ9X2ZztyvtRFWQuJ/ZGVX26fWlpwF5DwYHgtENqIrCwYs04gDQ9BZTvbh0YTynbLCAP7/Q8G6hGvnMX8AQpaYrUYO0vCXT/ZREQLuTZKRSzpMHhahy3F3dGOgpqoDQP5q1FgIsEAt/FUKl0zOsa6yl7RSD1VEe9h3X7lybe9gnpezNH9EmZpVgxSGdr5kqDmDzkGAsZVscLtmULjPDhqAabE+ppqhXF3IRNljpFSi2PHaDYFdkbavGZ6pWq6z9CC/87EBC3YMZFDil2Cu0ifMkfkqyuGaA7780EhnYs9YFv4M/kQ/SQAvByoQDiLPGAZqijcdnbdukw2ZofgtwGluqH5tjNQQGYNoO7Hknk/hnoPfkJukC4a+hdzUzDSd88cix5fYlnxxlZs2ABqqUiDfgJY1oV5lwMrNqvv8uRTs6vtWhhWjyK/1GPdP0nwbFM5z4Hl1frl6LF3wdqKVUcfDVKcny2kRf+2YBHBcmXCqdyxHAQW8RJa9k9CX9CVK9LsI4jQmKvPrZaK/ZC/mC8Vy2Kc6D0C+qIq1+iOVyLmnYqjnSd5nYCbqL4imX7j9RhX8p4HXnjOns1fK+hHf9Ni1Ojcz5mXEyynpGKIlyQw00GpbCNd8DV5kYntJtewANokODXR4AYZFWG4Ro1O4c3Qj3GrM=
+    secure: H5NcYWMCb42K6LM8iB9Om6RT5wXvb2xjXwanI0miFUobEBUJFwsZdRVFGG/xb7c8RK+A1nRiJetVHyMoAWYx7p7OwM8QzZmUzBLimBUSPWk+5JLiI1mYh9nQjRTCxXdtn3wrVpGc4CeFILO73k12YTx9vhrSIoyCFluPU+xxxz+pLJ2mcOFfEa5CnNlyysPct39mG0/b/y5lzjIFEsCzm6DUM78rqgtYeWSzHAMbaSSAAdN1AQ/qntg5DfZo1qqMWZSlK17MzAnxkbfx6oL2IrlTIof1gTV64HELaVRbAwgJki4MadltTdplykjPfNLF8pNCw00V3CsW6559VODajWxEsyqoyaFbs0MnDdjkF2FHu0cu33frlJTaT3mHaQglWb9Awkv/lEz29rV9os7f9NNUZoX9n9VoNbbh14dYNZ1yBIgpx0968cehRHOk/aNbI03bmllNGSb2AAHopllzQjwAudgLmKUZcKoxWAR9N16VePstcPF8rSOa/QbwpBJoM7PrwsxohWOIOuUBo8WzoWGI+/Eepo0nS0ZQL4v9yRSiudiHDszwNN5jQwDA/YPHg8544dRZAnQT1jHLnE/46pwXxs7vAuOTjmyIC0W47eCKg92dE8FLpVKDl5lRUvJXUEX0tbuEwOZHCNI4o6LgGV4Q9aDeUDMbC9Bjb0SBDHw=
   on:
     tags: true
