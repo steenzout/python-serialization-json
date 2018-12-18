@@ -1,2 +1,2 @@
-simplejson==3.8.2
+simplejson==3.16.0
 strict_rfc3339==0.7
