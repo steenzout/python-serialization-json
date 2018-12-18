@@ -16,33 +16,35 @@
 #
 """Metadata module."""
 
-__author__ = 'Pedro Salgado'
-__author_email__ = 'steenzout@ymail.com'
+__author__ = u'Pedro Salgado'
+__author_email__ = u'steenzout@ymail.com'
 
 __classifiers__ = [
-    'Development Status :: 5 - Production/Stable',
-    'Intended Audience :: Developers',
-    'Natural Language :: English',
-    'License :: OSI Approved :: Apache Software License',
-    'Programming Language :: Python',
-    'Programming Language :: Python :: 2.7',
-    'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.5',
-    'Programming Language :: Python :: 3.6',
-    'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: Implementation :: CPython',
-    'Programming Language :: Python :: Implementation :: PyPy'
+    u'Development Status :: 5 - Production/Stable',
+    u'Intended Audience :: Developers',
+    u'Natural Language :: English',
+    u'License :: OSI Approved :: Apache Software License',
+    u'Programming Language :: Python',
+    u'Programming Language :: Python :: 2.7',
+    u'Programming Language :: Python :: 3',
+    u'Programming Language :: Python :: 3.5',
+    u'Programming Language :: Python :: 3.6',
+    u'Programming Language :: Python :: 3.7',
+    u'Programming Language :: Python :: Implementation :: CPython',
+    u'Programming Language :: Python :: Implementation :: PyPy'
 ]
 
-__description__ = 'Steenzout JSON serialization package.'
+__copyright__ = u'2016-2018, %s' % __author__
 
-__license__ = 'Apache 2.0'
+__description__ = u'Steenzout JSON serialization package.'
 
-__maintainer__ = 'Pedro Salgado'
-__maintainer_email__ = 'steenzout@ymail.com'
+__license__ = u'Apache 2.0'
 
-__package__ = 'steenzout.serialization.json'
+__maintainer__ = u'Pedro Salgado'
+__maintainer_email__ = u'steenzout@ymail.com'
 
-__url__ = 'https://github.com/steenzout/python-serialization-json'
+__package__ = u'steenzout.serialization.json'
 
-__version__ = '1.0.6'
+__url__ = u'https://github.com/steenzout/python-serialization-json'
+
+__version__ = u'1.0.8'
