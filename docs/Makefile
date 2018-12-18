@@ -51,8 +51,7 @@ clean:
 .PHONY: apidoc
 apidoc:
 	sphinx-apidoc -f -T --separate -o apidoc ../steenzout
-	ls apidoc/*.rst | xargs -I {} sed -i .bak '/:undoc-members:/d' {}
-	rm apidoc/*.bak
+	ls apidoc/*.rst | xargs -I {} bash -c "sed -e '/:undoc-members:/d' {} > {}.new && mv -- {}.new {}"
 	@echo "apidoc generation finished, look at the " \
 	      "results in the apidoc directory."
 
